@@ -6,6 +6,12 @@
         {{--<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">--}}
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="description" content="我真不是装逼,高逼格,天生的">
+        <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link href="{{ asset('images/apple-touch-icon-76x76.png') }}" rel="apple-touch-icon" sizes="76x76">
+        <link href="{{ asset('images/apple-touch-icon-120x120.png') }}" rel="apple-touch-icon" sizes="120x120">
+        <link href="{{ asset('images/apple-touch-icon-152x152.png') }}" rel="apple-touch-icon" sizes="152x152">
+        <meta name="keywords" content="前端开发,Rain,吴睿">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
