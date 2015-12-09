@@ -26,7 +26,6 @@
                 padding: 0;
                 width: 100%;
                 display: table;
-                font-weight: 100;
                 font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
                 -webkit-user-select: none;
                 -ms-user-select: none;
@@ -87,7 +86,7 @@
         <div class="container">
             <div class="content">
                 <h1>Rain Wu</h1>
-                <p>Coder, Runner, Husband, Father</p>
+                <p>Coder, Runner, Father</p>
                 <ul>
                     <li>Blog(coming soon)</li>
                     <li><a target="_blank" href="https://twitter.com/rainwr">Twitter</a></li>
