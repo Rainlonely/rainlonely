@@ -95,10 +95,12 @@
                 <p>Coder, Runner, Father</p>
                 <ul>
                     <li>Blog(coming soon)</li>
+                    <li><a target="_blank" href="https://www.facebook.com/#/Rainlonely">Facebook</a></li>
                     <li><a target="_blank" href="https://twitter.com/rainwr">Twitter</a></li>
                     <li><a target="_blank" href="https://github.com/Rainlonely">Github</a></li>
                     <li><a target="_blank" href="https://plus.google.com/u/0/+RainWu">G+</a></li>
                     <li><a target="_blank" href="http://weibo.com/rainlonely">Weibo</a></li>
+                    <li><a target="_blank" href="https://cn.linkedin.com/in/rain-wu-56523824">Linkedin</a></li>
                 </ul>
             </div>
         </div>
