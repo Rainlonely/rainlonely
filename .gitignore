@@ -2,4 +2,7 @@
 .env.*.php
 .env.php
 .env
-.idea/*
+.idea/*.*
+public/dist
+public/node_modules
+public/bower_components
