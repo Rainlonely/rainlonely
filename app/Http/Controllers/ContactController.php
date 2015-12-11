@@ -28,7 +28,7 @@ class ContactController extends Controller
 //            ['Weibo','http://weibo.com/rainlonely'],
 //            ['Linkedin','https://cn.linkedin.com/in/rain-wu-56523824']
 //        ];
-        return view('welcome',compact('contacts'));
+        return view('contact',compact('contacts'));
     }
 
     /**

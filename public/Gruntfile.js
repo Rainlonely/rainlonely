@@ -1,17 +1,18 @@
 module.exports = function (grunt) {
-    // Auto load grunt tasks
+    // 自动加载grunt任务
     require('load-grunt-tasks')(grunt);
+    // 显示任务执行时间，用户优化构建时间
     require('time-grunt')(grunt);
-    // grunt init config
+    // grunt 初始化配置
     grunt.initConfig({
-        // project path config
+        // 项目目录配置
         web: {
-            // source code path
+            // 源代码目录名
             app: require('./bower.json').appPath || 'app',
-            // build dist path
+            // build目录名
             dist: 'dist'
         },
-        // clean dist
+        // 清除项目目录，删除build生成
         clean: {
             dist: {
                 files: [
@@ -26,9 +27,11 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+        // 自动为css文件添加不同浏览器的前缀
         autoprefixer: {
             options: {
-                browsers: ['last 1 version']
+                browsers: ['last 3 versions']
             },
             dist: {
                 files: [{
@@ -39,6 +42,9 @@ module.exports = function (grunt) {
                 }]
             }
         },
+
+
+        // less构建，生成css文件
         less: {
             development: {
                 options: {
@@ -47,21 +53,14 @@ module.exports = function (grunt) {
                 },
                 files: {
                     ".tmp/styles/bootstrap.css": "<%= web.app %>/assets/less/bootstrap.less",
-                    ".tmp/styles/variables.css": "<%= web.app %>/assets/less/variables.less"
+                    ".tmp/styles/fontawesome.css": "bower_components/font-awesome/less/font-awesome.less",
+                    ".tmp/styles/global.css": "<%= web.app %>/assets/less/global.less",
+                    ".tmp/styles/articlelist.css": "<%= web.app %>/assets/less/articlelist.less"
                 }
             }
         },
-        sass:{
-            dist:{
-                files:[{
-                    expand: true,
-                    cwd: '.tmp/styles/',
-                    src: '{,*/}*.scss',
-                    dest: '.tmp/styles/',
-                    ext: '.css'
-                }]
-            }
-        },
+
+        // 压缩css文件
         cssmin: {
             minify: {
                 expand: true,
@@ -71,6 +70,8 @@ module.exports = function (grunt) {
                 ext: '.min.css'
             }
         },
+
+        // 将build目录下js文件压缩
         uglify: {
             options: {
                 mangle: false,
@@ -88,6 +89,9 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+
+        // 开发目录images下图片压缩并拷贝到build目录
         imagemin: {
             dist: {
                 files: [
@@ -100,6 +104,8 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+        // svg文件压缩
         svgmin: {
             dist: {
                 files: [
@@ -112,6 +118,8 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+        // html文件压缩
         htmlmin: {
             dist: {
                 options: {
@@ -131,6 +139,8 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+        // 拷贝任务文件拷贝到build目录
         copy: {
             dist: {
                 files: [
@@ -142,10 +152,32 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd: '<%= web.app %>/assets/fonts',
+                        dest: '<%= web.dist %>/fonts',
+                        src: ['assets/fonts/*' ]
+                    },
+                    // 拷贝bootstrap字体到build目录
+                    {
+                        expand: true,
+                        cwd: 'bower_components/font-awesome/fonts',
+                        src: ['*.*'],
+                        dest: '<%= web.dist %>/fonts'
+                    },
+                    // 拷贝bootstrap字体到build目录
+                    {
+                        expand: true,
+                        cwd: 'bower_components/bootstrap/fonts',
+                        src: ['*.*'],
+                        dest: '<%= web.dist %>/fonts'
+                    },
+                    // 拷贝jquery js到build目录
+                    {
+                        expand: true,
                         cwd: 'bower_components/jquery/dist',
                         src: ['jquery.*'],
                         dest: '<%= web.dist %>/js'
                     },
+                    // 拷贝bootstrap js到build目录
                     {
                         expand: true,
                         cwd: 'bower_components/bootstrap/dist/js',
@@ -154,12 +186,20 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'bower_components/bootstrap/dist/',
-                        src: ['bootstrap.min.css'],
-                        dest: '<%= web.dist %>/css'
+                        cwd: 'bower_components/imagesloaded',
+                        src: ['imagesloaded.pkgd.min.js'],
+                        dest: '<%= web.dist %>/js'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/isotope/dist',
+                        src: ['isotope.pkgd.min.js'],
+                        dest: '<%= web.dist %>/js'
                     }
+
                 ]
             },
+            // 拷贝html文件从源文件目录到build目录
             html : {
                 files: [
                     {
@@ -174,6 +214,7 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            // 拷贝js文件从源文件目录到build目录
             js: {
                 files: [
                     {
@@ -187,6 +228,7 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            // 拷贝样式文件从源文件目录到build目录
             styles: {
                 expand: true,
                 cwd: '<%= web.app %>/assets/css',
@@ -207,12 +249,16 @@ module.exports = function (grunt) {
                 dest: '<%= web.dist %>/images'
             }
         },
+
+
+        // build时并行运行任务
         concurrent: {
             dist: [
                 'copy:js',
                 'copy:styles',
-                'copy:images',
-                'copy:stylesbuild'
+                'copy:images'
+                //'imagemin',
+                //'svgmin'
             ]
         },
 
@@ -232,18 +278,20 @@ module.exports = function (grunt) {
             }
         },
 
+        // 监听文件的变更，自动执行任务
         watch: {
-            //styles: {
-            //   files: ['<%= web.app %>/assets/less/{,**/}*.less'],
-            //    tasks: ['less', 'autoprefixer', 'copy:stylesbuild'],
-            //    options: {
-            //        nospawn: true
-            //    }
-            //},
+            // 如果源文件目录less文件变更，自动执行css生成，添加浏览器前缀，压缩任务
+            styles: {
+               files: ['<%= web.app %>/assets/less/{,**/}*.less'],
+                tasks: ['less', 'autoprefixer', 'copy:stylesbuild'],
+                options: {
+                    nospawn: true
+                }
+            },
             html :{
                 expand: true,
                 files: ['<%= web.app %>/views/{,**/}*.html'],
-                tasks: ['copy:html', 'htmlmin'],
+                //tasks: ['copy:html', 'htmlmin']
                 tasks: ['copy:html']
             },
             js :{
@@ -256,18 +304,24 @@ module.exports = function (grunt) {
             }
         }
     });
-    // register build task
+
+    // 注册build组任务
     grunt.registerTask('build', [
         'clean:dist',
         'concurrent:dist',
-        'sass',
-        'autoprefixer',
+        'less',
+        //'autoprefixer',
         'copy:dist',
         'copy:html',
         'copy:js',
         'copy:styles',
-        'copy:stylesbuild',
-        'cssmin'
+        //'uglify',
+        'cssmin',
+        //'htmlmin'
     ]);
-    grunt.registerTask('default', ['browserSync', 'watch']);
+
+    // 注册default任务
+ grunt.registerTask('default', ['browserSync', 'watch']);
+
+//    grunt.registerTask('default', ['watch']);
 };
