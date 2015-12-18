@@ -1,6 +1,10 @@
+@section('styles')
+    @parent
+    <link rel="stylesheet" href="{{asset('dist/css/message.min.css')}}"/>
+    @stop
 @extends('layout')
 @section('content')
-    <div class="container">
+    <div class="container form-container">
 {!! Form::open(['url'=>'contact','id'=>'commentForm']) !!}
 <div class="form-group">
     {!! Form::text('name',null ,['placeholder'=>'昵称','class'=>'form-control']) !!}

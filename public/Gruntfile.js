@@ -55,7 +55,8 @@ module.exports = function (grunt) {
                     ".tmp/styles/bootstrap.css": "<%= web.app %>/assets/less/bootstrap.less",
                     ".tmp/styles/fontawesome.css": "bower_components/font-awesome/less/font-awesome.less",
                     ".tmp/styles/global.css": "<%= web.app %>/assets/less/global.less",
-                    ".tmp/styles/articlelist.css": "<%= web.app %>/assets/less/articlelist.less"
+                    ".tmp/styles/articlelist.css": "<%= web.app %>/assets/less/articlelist.less",
+                    ".tmp/styles/message.css": "<%= web.app %>/assets/less/message.less"
                 }
             }
         },

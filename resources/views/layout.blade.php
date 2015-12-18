@@ -10,9 +10,10 @@
     <link href="{{ asset('images/apple-touch-icon-76x76.png') }}" rel="apple-touch-icon" sizes="76x76">
     <link href="{{ asset('images/apple-touch-icon-120x120.png') }}" rel="apple-touch-icon" sizes="120x120">
     <link href="{{ asset('images/apple-touch-icon-152x152.png') }}" rel="apple-touch-icon" sizes="152x152">
-    <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/articlelist.min.css') }}">
+    @section('styles')
+        <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('dist/css/fontawesome.min.css') }}">
+    @show
     <meta name="keywords" content="前端开发,Rain,吴睿">
     <meta name="baidu-site-verification" content="W7el1NQoo9" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">

@@ -1,3 +1,7 @@
+@section('styles')
+    @parent
+    <link rel="stylesheet" href="{{ asset('dist/css/articlelist.min.css') }}">
+@stop
 @extends('layout')
 @section('content')
     <section class="latest-news" style="background-image:url('{{asset('dist/images/banner1.jpg')}}');">
