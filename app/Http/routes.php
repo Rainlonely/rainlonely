@@ -16,3 +16,7 @@ Route::get('/contact', 'ContactController@index');
 
 Route::post('/contact', 'ContactController@store');
 Route::get('/comment','ContactController@show');
+
+Route:get('/message', function(){
+    return view('message');
+});

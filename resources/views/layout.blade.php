@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('dist/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/articlelist.min.css') }}">
     <meta name="keywords" content="前端开发,Rain,吴睿">
+    <meta name="baidu-site-verification" content="W7el1NQoo9" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

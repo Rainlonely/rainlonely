@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Comment;
+use App\Http\Requests\CreateCommentRequest;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class ContactController extends Controller
 {
@@ -43,12 +45,15 @@ class ContactController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param CreateCommentRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CreateCommentRequest $request)
     {
-        $input = Request::all();
-        Comment::create($input);
+        //validation
+
+        //$input = Request::all();
+        Comment::create($request->all());
         return redirect('comment');
     }
 
