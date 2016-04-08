@@ -1,9 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Nixie+One);
 .header-bar {
   height: 80px;
 }
 .header-bar h1 {
   margin: 0;
-  color: #7c9097;
+  color: #0e223d;
   line-height: 72px;
   padding-left: 10%;
 }
@@ -28,7 +29,7 @@
   font-style: italic;
 }
 .header-bar .pull-right {
-  color: #7c9097;
+  color: #0e223d;
 }
 .header-bar .search-box {
   display: inline-block;
@@ -47,6 +48,10 @@
   font-size: 24px;
   line-height: 80px;
   text-align: center;
+}
+.logo {
+  font-family: 'Nixie One', cursive;
+  font-size: 2.4em;
 }
 @media (max-device-width: 480px) {
   .header-bar .pull-left i,

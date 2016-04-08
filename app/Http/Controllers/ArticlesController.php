@@ -26,7 +26,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        retrun view('article.create');
     }
 
     /**
@@ -37,7 +37,8 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Article::create($request->all());
+        return redirect('articles');
     }
 
     /**
@@ -59,7 +60,8 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
     }
 
     /**

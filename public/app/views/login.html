@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="我真不是装逼,高逼格,天生的">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/form.min.css">
+</head>
+<body>
+    <div class="container">
+            <div class="logo text-center"><h1>Rainlonely</h1></div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active col-xs-6 text-center"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">SIGN IN</a></li>
+                <li role="presentation" class="col-xs-6 text-center"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">SIGN UP</a></li>
+                <li class="active-bg col-xs-6"></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="login">
+                    <form>
+                        <div class="form-group">
+                            <input id="user-name" type="text" class="form-control">
+                            <label for="user-name">NAME</label>
+                        </div>
+                        <div class="form-group">
+                            <input id="password" type="password" class="form-control">
+                            <label for="password">PASSWORD</label>
+                        </div>
+                        <button class="btn btn-primary">CONTIUNE</button>
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="register">
+                    <form>
+                        <div class="form-group">
+                            <input id="new-user-name" type="text" class="form-control">
+                            <label for="new-user-name">NAME</label>
+                        </div>
+                        <div class="form-group">
+                            <input id="email" type="email" class="form-control">
+                            <label for="email">EMAIL</label>
+                        </div>
+                        <div class="form-group">
+                            <input id="new-password" type="password" class="form-control">
+                            <label for="new-password">PASSWORD</label>
+                        </div>
+                        <button class="btn btn-primary">CREATE ACCOUNT</button>
+                    </form>
+                </div>
+            </div>
+        <div class="bg-left"></div>
+        <div class="bg-right"></div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.transit.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('input').on('click',function(){
+                $(this).next('label').addClass('labelHover');
+            });
+            $('.nav-tabs li').on('click',function(){
+                if($(this).offset().left >= window.innerWidth/2){
+                    $('.active-bg').css('left','50%');
+                } else{
+                    $('.active-bg').css('left','0');
+                }
+            });
+            $('.container').height(window.innerHeight);
+            $('.bg-left').transit({x:'-200%',rotate:'45deg'}).transit({x:'-56%', height:window.innerHeight/2, width:window.innerWidth,delay:1000},1000,'snap');
+            $('.bg-right').transit({x:'200%',rotate:'-45deg'}).transit({x:'26%', height:window.innerHeight/3, width:window.innerWidth,delay:1500},1000,'snap');
+            $('.logo').transit({y:'-200px'}).transit({y:'0px',delay:'2500'},500);
+            $('.nav-tabs').transit({opacity:0}).transit({opacity:1,delay:'3000'},1000);
+            $('.tab-content').transit({opacity:0}).transit({opacity:1,delay:'4000'},1000);
+        });
+    </script>
+</body>
+</html>

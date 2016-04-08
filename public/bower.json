@@ -6,7 +6,8 @@
     "tether": "~1.1.1",
     "font-awesome": "fontawesome#~4.5.0",
     "isotope": "~2.2.2",
-    "imagesloaded": "~3.2.0"
+    "imagesloaded": "~3.2.0",
+    "jquery.transit": "~0.9.12"
   },
   "devDependencies": {}
 }

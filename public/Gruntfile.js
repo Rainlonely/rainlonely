@@ -56,7 +56,8 @@ module.exports = function (grunt) {
                     ".tmp/styles/fontawesome.css": "bower_components/font-awesome/less/font-awesome.less",
                     ".tmp/styles/global.css": "<%= web.app %>/assets/less/global.less",
                     ".tmp/styles/articlelist.css": "<%= web.app %>/assets/less/articlelist.less",
-                    ".tmp/styles/message.css": "<%= web.app %>/assets/less/message.less"
+                    ".tmp/styles/message.css": "<%= web.app %>/assets/less/message.less",
+                    ".tmp/styles/form.css": "<%= web.app %>/assets/less/form.less"
                 }
             }
         },
@@ -176,6 +177,12 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'bower_components/jquery/dist',
                         src: ['jquery.*'],
+                        dest: '<%= web.dist %>/js'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/jquery.transit' ,
+                        src: ['jquery.transit.js'],
                         dest: '<%= web.dist %>/js'
                     },
                     // 拷贝bootstrap js到build目录
